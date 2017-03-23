@@ -1,0 +1,35 @@
+<div class="animated zoomIn contact-form-push-down">    
+    <form name="userForm" class="form form-horizontal" ng-submit="contact.submitForm()" novalidate>
+        <div class="form-group" ng-class="{'has-error': !usernameGood && userForm.name.$invalid && userForm.name.$dirty }">
+            <label for="name" class="col-sm-1 control-label">Name</label>
+            <div class="col-sm-3">
+                <input id="name" type="text" class="form-control" name="name" ng-model="contact.user.name" valid-username required>
+            </div>
+            <span class="error-alert" ng-show="!!userForm.name.$error.isBlank">Username Required.</span>
+            <span class="error-alert" ng-show="!!userForm.name.$error.invalidChars">Username must contain letters and spaces only.</span>
+            <span class="error-alert" ng-show="!!userForm.name.$error.invalidLen">Username must be 5-20 characters.</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': userForm.postId.$invalid && userForm.postId.$dirty }">
+            <label for="postId" class="col-sm-1 control-label">Post Id</label>
+            <div class="col-sm-3">
+                <input id="postId" type="number" class="form-control" name="postId" ng-model="contact.user.postId" required>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': userForm.email.$invalid && userForm.email.$dirty }">
+            <label for="email" class="col-sm-1 control-label">Email</label>
+            <div class="col-sm-3">
+                <input id="email" type="email" class="form-control" name="email" ng-model="contact.user.email" required>
+            </div>    
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': userForm.message.$invalid && userForm.message.$dirty }">
+            <label for="message" class="col-sm-1 control-label">Message</label>
+            <div class="col-sm-3">
+                <textarea id="message" type="text" class="form-control" name="message" rows="3" ng-model="contact.user.message" required></textarea>
+            </div>    
+        </div>
+        <button type="submit" value="submit" 
+            class="col-sm-offset-1 btn btn-primary"
+            ng-disabled="!(!userForm.email.$invalid && !userForm.message.$invalid && usernameGood)">Submit
+        </button>   
+    </form>
+</div>

@@ -1,0 +1,9 @@
+<i class="fa fa-spinner fa-pulse fa-5x" ng-if="!album.turnOffSpinner"></i>
+<div class="animated fadeIn" 
+    ng-repeat="friend in album.myAllPhotos">
+    <my-friend class="col-lg-3 col-md-4 col-sm-6 col-xs-6"
+        albumId="friend.albumId" id="friend.id" 
+        title="friend.title" url="friend.url" 
+        thumbnailUrl="friend.thumbnailUrl">
+    </my-friend>
+</div>
